@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import notesReducer from "./notes/notesReducer";
+import { notesReducer } from "./notes/notesReducer";
 import { notesState } from "./notes/types";
 
 export type AppState = {
@@ -9,5 +9,3 @@ export type AppState = {
 export const appReducer = combineReducers({
   notesState: notesReducer,
 });
-
-

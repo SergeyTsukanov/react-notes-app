@@ -1,20 +1,21 @@
 import { v4 as uuidv4 } from "uuid";
-import { notesState } from "./types";
+import { note, notesState } from "./types";
 import { Reducer } from "react";
+import { AnyAction } from "redux";
 
-enum Categories {
+export enum Categories {
   TASK = "Task",
   IDEA = "Idea",
   RANDTHOUGHT = "Random thought",
 }
 
-
-enum noteActionType {
+export enum noteActionType {
   CreateNote,
   RemoveNote,
   UpdateNote,
 }
-const initialState:notesState = { notes: [
+const initialState: notesState = {
+  notes: [
     {
       id: uuidv4(),
       name: "Simple Idea",
@@ -80,20 +81,26 @@ const initialState:notesState = { notes: [
       dates:
         "I’m gonna have a dentist appointment on the 3/5/2021, I moved it from 5/5/2021",
     },
-  ]
-}
-type noteAction = { type: noteActionType; payload?: object };
-const notesReducer:Reducer<notesState,noteAction> = (
+  ],
+};
+export const notesReducer: Reducer<notesState, AnyAction> = (
   state = initialState,
   action
 ) => {
   switch (action.type) {
     case noteActionType.CreateNote: {
-      return { ...state };
+      const newNote: note = {
+        id: uuidv4(),
+        name: action.payload.name,
+        category: action.payload.category,
+        created: new Date(),
+        content: action.payload.content,
+        isArchive: false,
+        dates: action.payload.content,
+      };
+      return { ...state, notes: [...state.notes, newNote] };
     }
     default:
       return state;
   }
 };
-
-export default notesReducer;
