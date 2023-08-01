@@ -1,12 +1,8 @@
 import { useSelector } from "react-redux";
-import * as store from "../store/index.ts";
 import { Table } from "react-bootstrap";
 import TableHead from "./TableHead.tsx";
 import TableRow from "./TableRow.tsx";
-const selectNotes = (state: store.AppState) => {
-  console.log(state.notesState.notes);
-  return state.notesState.notes;
-};
+import { selectNotes } from "../store/notes/selectors.tsx";
 
 interface TableComponentProps {
   columnsNames: string[];

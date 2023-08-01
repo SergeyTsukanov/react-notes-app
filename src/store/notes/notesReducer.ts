@@ -10,9 +10,9 @@ export enum Categories {
 }
 
 export enum noteActionType {
-  CreateNote,
-  RemoveNote,
-  UpdateNote,
+  CreateNote = "CreateNote",
+  RemoveNote = "RemoveNote",
+  UpdateNote = "UpdateNote",
 }
 const initialState: notesState = {
   notes: [
@@ -100,6 +100,13 @@ export const notesReducer: Reducer<notesState, AnyAction> = (
       };
       return { ...state, notes: [...state.notes, newNote] };
     }
+    case noteActionType.RemoveNote: {
+      return {
+        ...state,
+        notes: state.notes.filter((note) => note.id !== action.payload),
+      };
+    }
+
     default:
       return state;
   }
