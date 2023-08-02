@@ -8,3 +8,7 @@ export const createNoteAction: ActionCreator<AnyAction> = (payload) => {
 export const deleteNoteAction: ActionCreator<AnyAction> = (id) => {
   return { type: noteActionType.RemoveNote, payload: id };
 };
+
+export const updateNoteAction: ActionCreator<AnyAction> = (data) => {
+  return { type: noteActionType.UpdateNote, payload: data };
+};

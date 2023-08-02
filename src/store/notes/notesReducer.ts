@@ -100,6 +100,23 @@ export const notesReducer: Reducer<notesState, AnyAction> = (
       };
       return { ...state, notes: [...state.notes, newNote] };
     }
+    case noteActionType.UpdateNote: {
+      return {
+        ...state,
+        notes: state.notes.map((note) => {
+          if (note.id === action.payload.id) {
+            return {
+              ...note,
+              name: action.payload.name,
+              category: action.payload.category,
+              content: action.payload.content,
+            };
+          } else {
+            return note;
+          }
+        }),
+      };
+    }
     case noteActionType.RemoveNote: {
       return {
         ...state,

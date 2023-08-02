@@ -2,17 +2,17 @@ import { useForm } from "react-hook-form";
 import { note } from "../store/notes/types";
 import { Button, Form, Row } from "react-bootstrap";
 import { Categories } from "../store/notes/notesReducer";
-import { createNoteAction } from "../store/notes/actions";
-import { useDispatch } from "react-redux";
+import { noteFormPayload } from "./types";
 
 interface NoteFormProps {
   note?: note;
+  onSubmit(data: noteFormPayload): void;
 }
-const NoteForm = ({ note }: NoteFormProps) => {
-  const dispatch = useDispatch();
 
+const NoteForm = ({ note, onSubmit }: NoteFormProps) => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
+      id: note?.id,
       name: note?.name,
       category: note?.category,
       content: note?.content,
@@ -21,14 +21,9 @@ const NoteForm = ({ note }: NoteFormProps) => {
 
   return (
     <div className="d-flex justify-content-center">
-      <Form
-        className="w-50"
-        onSubmit={handleSubmit((data) => {
-          dispatch(createNoteAction(data));
-        })}
-      >
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group as={Row} md="4" controlId="validationCustom01">
-          <Form.Label>Note name</Form.Label>
+          <Form.Label>Name</Form.Label>
           <Form.Control
             {...register("name", { required: "Required" })}
             type="text"
@@ -36,7 +31,7 @@ const NoteForm = ({ note }: NoteFormProps) => {
           />
         </Form.Group>
         <Form.Group as={Row} md="4" controlId="validationCustom02">
-          <Form.Label>Note content </Form.Label>
+          <Form.Label>Content </Form.Label>
           <Form.Control
             {...register("content", { required: "Required" })}
             as="textarea"
@@ -47,7 +42,7 @@ const NoteForm = ({ note }: NoteFormProps) => {
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Row} md="4">
-          <Form.Label>Note category</Form.Label>
+          <Form.Label>Category</Form.Label>
           <Form.Select
             required
             aria-label="Default select example"
