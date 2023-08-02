@@ -22,7 +22,7 @@ const App: FC = () => {
   return (
     <>
       <Container>
-      <h1>React notes App</h1>
+        <h1>React notes App</h1>
         {nonArchivedNotes.length > 0 && (
           <TableComponent>
             <TableHead
@@ -41,21 +41,25 @@ const App: FC = () => {
         <ModalUpdateNote />
         <CreateNoteComponent />
         {archivedNotes.length > 0 && (
-          <TableComponent>
-            <TableHead
-              columnsNames={[
-                "Name",
-                "Created",
-                "Category",
-                "Content",
-                "Dates",
-                "Actions",
-              ]}
-            />
-            <TableBody data={archivedNotes} />
-          </TableComponent>
+          <>
+            <h3 className="mt-4">Archived notes:</h3>
+            <TableComponent>
+              <TableHead
+                columnsNames={[
+                  "Name",
+                  "Created",
+                  "Category",
+                  "Content",
+                  "Dates",
+                  "Actions",
+                ]}
+              />
+              <TableBody data={archivedNotes} />
+            </TableComponent>
+          </>
         )}
 
+        <h3 className="mt-4">Stats:</h3>
         <TableComponent>
           <TableHead columnsNames={["Category", "active", "archived"]} />
           <StatsTableBody data={notesStats} />
