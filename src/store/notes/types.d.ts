@@ -1,3 +1,5 @@
+import { Categories } from "./notesReducer";
+
 export type notesState = { notes: note[] };
 export type note = {
   id: string;
@@ -7,5 +9,8 @@ export type note = {
   content: string;
   isArchive: boolean;
   dates: string;
+};
 
+export type StatTable = {
+  [key in Categories]: { archived: number; active: number };
 };

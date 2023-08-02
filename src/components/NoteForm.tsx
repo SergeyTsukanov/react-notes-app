@@ -12,7 +12,7 @@ interface NoteFormProps {
 const NoteForm = ({ note, onSubmit }: NoteFormProps) => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      id: note?.id,
+        id:note?.id,
       name: note?.name,
       category: note?.category,
       content: note?.content,

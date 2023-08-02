@@ -1,8 +1,25 @@
 import { Button } from "react-bootstrap";
-import { note } from "../store/notes/types";
+import { note } from "../../store/notes/types";
 import { useDispatch } from "react-redux";
-import { deleteNoteAction } from "../store/notes/actions";
-import { openModal } from "../store/modal/actions";
+import {
+  deleteNoteAction,
+  toggleArchiveNoteAction,
+} from "../../store/notes/actions";
+import { openModal } from "../../store/modal/actions";
+import { formatDate } from "../../utils/formatDate";
+
+interface TableBodyProps {
+  data: note[];
+}
+const TableBody = ({ data }: TableBodyProps) => {
+  return (
+    <tbody>
+      {data.map((item) => (
+        <TableRow key={item.id} item={item} />
+      ))}
+    </tbody>
+  );
+};
 
 interface TableNoteRowProps {
   item: note;
@@ -11,26 +28,6 @@ interface TableNoteRowProps {
 const TableRow = ({ item }: TableNoteRowProps) => {
   const dispatch = useDispatch();
   const openEditModal = () => dispatch(openModal(item.id));
-  const formatDate = (date: Date): string => {
-    const year = date.getFullYear();
-    const mounth: number = date.getMonth() + 1; // Months start at 0!
-    const day: number = date.getDate();
-
-    let dd: string;
-    let mm: string;
-    if (day < 10) {
-      dd = "0" + day.toString();
-    } else {
-      dd = day.toString();
-    }
-    if (mounth < 10) {
-      mm = "0" + mounth.toString();
-    } else {
-      mm = mounth.toString();
-    }
-
-    return dd + "/" + mm + "/" + year.toString();
-  };
   return (
     <tr>
       <td>{item.name}</td>
@@ -54,7 +51,10 @@ const TableRow = ({ item }: TableNoteRowProps) => {
             <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
           </svg>
         </Button>
-        <Button variant="link">
+        <Button
+          variant="link"
+          onClick={() => dispatch(toggleArchiveNoteAction(item.id))}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -83,4 +83,5 @@ const TableRow = ({ item }: TableNoteRowProps) => {
   );
 };
 
-export default TableRow;
+
+export default TableBody;

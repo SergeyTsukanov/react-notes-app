@@ -13,6 +13,7 @@ export enum noteActionType {
   CreateNote = "CreateNote",
   RemoveNote = "RemoveNote",
   UpdateNote = "UpdateNote",
+  ToggleArchiveNote = "ToggleArchiveNote",
 }
 const initialState: notesState = {
   notes: [
@@ -121,6 +122,18 @@ export const notesReducer: Reducer<notesState, AnyAction> = (
       return {
         ...state,
         notes: state.notes.filter((note) => note.id !== action.payload),
+      };
+    }
+    case noteActionType.ToggleArchiveNote: {
+      return {
+        ...state,
+        notes: state.notes.map((note) => {
+          if (note.id === action.payload) {
+            return { ...note, isArchive: !note.isArchive };
+          } else {
+            return note;
+          }
+        }),
       };
     }
 
