@@ -1,8 +1,8 @@
 import { FC } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
-import ModalUpdateNote from "./components/ModalUpdateNote";
-import { CreateNoteComponent } from "./components/CreateNoteComponent";
+import ModalUpdateNote from "./components/Forms/ModalUpdateNote";
+import CreateNoteComponent from "./components/Forms/CreateNoteComponent";
 import {
   selectArchivedNotes,
   selectNonArchivedNotes,
@@ -22,6 +22,7 @@ const App: FC = () => {
   return (
     <>
       <Container>
+      <h1>React notes App</h1>
         {nonArchivedNotes.length > 0 && (
           <TableComponent>
             <TableHead

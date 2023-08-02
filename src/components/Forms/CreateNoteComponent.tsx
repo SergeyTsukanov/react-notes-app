@@ -1,11 +1,11 @@
 import { Button } from "react-bootstrap";
 import NoteForm from "./NoteForm";
 import { useState } from "react";
-import { createNoteAction } from "../store/notes/actions";
+import { createNoteAction } from "../../store/notes/actions";
 import { useDispatch } from "react-redux";
 import { noteFormPayload } from "./types";
 
-export const CreateNoteComponent = () => {
+const CreateNoteComponent = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
 
@@ -27,3 +27,5 @@ export const CreateNoteComponent = () => {
     </div>
   );
 };
+
+export default CreateNoteComponent;

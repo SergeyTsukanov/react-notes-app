@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import { note } from "../store/notes/types";
+import { note } from "../../store/notes/types";
 import { Button, Form, Row } from "react-bootstrap";
-import { Categories } from "../store/notes/notesReducer";
+import { Categories } from "../../store/notes/notesReducer";
 import { noteFormPayload } from "./types";
 
 interface NoteFormProps {
@@ -12,7 +12,7 @@ interface NoteFormProps {
 const NoteForm = ({ note, onSubmit }: NoteFormProps) => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
-        id:note?.id,
+      id: note?.id,
       name: note?.name,
       category: note?.category,
       content: note?.content,

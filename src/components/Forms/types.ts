@@ -1,5 +1,4 @@
-import { Categories } from "../store/notes/notesReducer";
-
+import { Categories } from "../../store/notes/notesReducer";
 export interface noteFormPayload {
   id?: string;
   name?: string;

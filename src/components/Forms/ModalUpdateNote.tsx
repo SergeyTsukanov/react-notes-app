@@ -1,11 +1,11 @@
 import { Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { selectNotes } from "../store/notes/selectors";
-import { selectEditNoteId, selectIsOpen } from "../store/modal/selectors";
+import { selectNotes } from "../../store/notes/selectors";
+import { selectEditNoteId, selectIsOpen } from "../../store/modal/selectors";
 import NoteForm from "./NoteForm";
-import { closeModal } from "../store/modal/actions";
+import { closeModal } from "../../store/modal/actions";
 import { noteFormPayload } from "./types";
-import { updateNoteAction } from "../store/notes/actions";
+import { updateNoteAction } from "../../store/notes/actions";
 
 const ModalUpdateNote = () => {
   const dispatch = useDispatch();
