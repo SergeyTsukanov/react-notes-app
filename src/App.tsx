@@ -22,7 +22,7 @@ const App: FC = () => {
   return (
     <>
       <Container>
-        <h1>React notes App</h1>
+        <h1 className="text-black font-bold">React notes App</h1>
         {nonArchivedNotes.length > 0 && (
           <TableComponent>
             <TableHead
