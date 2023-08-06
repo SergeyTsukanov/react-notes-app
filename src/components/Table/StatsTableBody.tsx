@@ -5,7 +5,7 @@ interface StatsTableBodyProps {
 }
 const StatsTableBody = ({ data }: StatsTableBodyProps) => {
   return (
-    <tbody>
+    <tbody className="divide-y divide-gray-200">
       {Object.entries(data).map((item) => (
         <StatsRow key={item[0]} item={item} />
       ))}
@@ -19,9 +19,9 @@ interface StatsRowProps {
 const StatsRow = ({ item }: StatsRowProps) => {
   return (
     <tr>
-      <td>{item[0]}</td>
-      <td>{item[1].active}</td>
-      <td>{item[1].archived}</td>
+      <td className="px-6 py-3 text-gray-800">{item[0]}</td>
+      <td className="px-6 py-3 text-gray-800 text-center">{item[1].active}</td>
+      <td className="px-6 py-3 text-gray-800 text-center">{item[1].archived}</td>
     </tr>
   );
 };
