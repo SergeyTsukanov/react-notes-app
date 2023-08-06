@@ -2,15 +2,12 @@ import { AppState } from "../";
 import { Categories } from "./notesReducer";
 import { StatTable } from "./types";
 export const selectNotes = (state: AppState) => {
-  console.log(state.notesState.notes);
   return state.notesState.notes;
 };
 export const selectArchivedNotes = (state: AppState) => {
-  console.log(state.notesState.notes);
   return state.notesState.notes.filter((note) => note.isArchive);
 };
 export const selectNonArchivedNotes = (state: AppState) => {
-  console.log(state.notesState.notes);
   return state.notesState.notes.filter((note) => !note.isArchive);
 };
 
