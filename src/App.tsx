@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { Container } from "react-bootstrap";
 import ModalUpdateNote from "./components/Forms/ModalUpdateNote";
 import CreateNoteComponent from "./components/Forms/CreateNoteComponent";
 import {

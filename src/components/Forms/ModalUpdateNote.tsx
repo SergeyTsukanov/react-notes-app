@@ -1,4 +1,3 @@
-import { Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { selectNotes } from "../../store/notes/selectors";
 import { selectEditNoteId, selectIsOpen } from "../../store/modal/selectors";
@@ -26,25 +25,17 @@ const ModalUpdateNote = () => {
 
   return (
     <>
-      {/*<Modal show={isOpen} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Edit note</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <NoteForm note={editNote} onSubmit={updateFormSubmit} />
-        </Modal.Body>
-        <Modal.Footer>
-          <button  onClick={handleClose}>
-            Close
-          </button>
-        </Modal.Footer>
-      </Modal>*/}
       {isOpen && (
         <div className="justify-center items-center inline-flex overflow-x-hidden overflow-y-auto fixed w-full h-full inset-0 z-50 outline-none bg-gray-600 bg-opacity-75 ">
           <div className="w-1/3 bg-white p-10 rounded">
             <div className="flex justify-between">
               <h4 className="text-xl mb-4">Edit Note:</h4>
-              <button className="px-4 py-2 bg-red-700 rounded text-white" onClick={handleClose}>X</button>
+              <button
+                className="px-4 py-2 bg-red-700 rounded text-white"
+                onClick={handleClose}
+              >
+                X
+              </button>
             </div>
             <NoteForm note={editNote} onSubmit={updateFormSubmit} />
           </div>
