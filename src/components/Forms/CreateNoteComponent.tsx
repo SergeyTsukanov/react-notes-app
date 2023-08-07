@@ -1,4 +1,3 @@
-import { Button } from "react-bootstrap";
 import NoteForm from "./NoteForm";
 import { useState } from "react";
 import { createNoteAction } from "../../store/notes/actions";
@@ -18,11 +17,24 @@ const CreateNoteComponent = () => {
     <div>
       {isOpen ? (
         <>
-          <Button onClick={() => setIsOpen(false)}>Close</Button>
-          <NoteForm onSubmit={createFormSubmit} />
+          <button
+            className="bg-red-500 p-2 rounded text-white hover:bg-red-700 transition duration-300 mt-4"
+            onClick={() => setIsOpen(false)}
+          >
+            Close
+          </button>
+
+          <div className="mt-4 mx-auto  w-1/3">
+            <NoteForm onSubmit={createFormSubmit} />
+          </div>
         </>
       ) : (
-        <Button onClick={() => setIsOpen(true)}>Add note</Button>
+        <button
+          className="bg-blue-500 p-2 rounded text-white hover:bg-blue-700 transition duration-300 mt-4"
+          onClick={() => setIsOpen(true)}
+        >
+          Add note
+        </button>
       )}
     </div>
   );

@@ -1,4 +1,3 @@
-import { Table } from "react-bootstrap";
 import { ReactNode } from "react";
 
 interface TableComponentProps {
@@ -7,9 +6,9 @@ interface TableComponentProps {
 
 const TableComponent = ({ children }: TableComponentProps) => {
   return (
-    <Table bordered className="mt-4">
-      {children}
-    </Table>
+    <div className="border rounded border-slate-300 shadow mt-4">
+      <table className="table-auto w-full">{children}</table>
+    </div>
   );
 };
 
