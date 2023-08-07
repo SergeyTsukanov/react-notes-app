@@ -20,7 +20,7 @@ const App: FC = () => {
     const notesStats = useSelector(selectStats);
     return (
         <>
-            <main className="container mx-auto mt-2">
+            <main className="container mx-auto">
                 <h1 className="text-black font-bold">React notes App</h1>
                 {nonArchivedNotes.length > 0 && (
                     <TableComponent>

@@ -23,7 +23,10 @@ const CreateNoteComponent = () => {
           >
             Close
           </button>
-          <NoteForm onSubmit={createFormSubmit} />
+
+          <div className="mt-4 mx-auto  w-1/3">
+            <NoteForm onSubmit={createFormSubmit} />
+          </div>
         </>
       ) : (
         <button

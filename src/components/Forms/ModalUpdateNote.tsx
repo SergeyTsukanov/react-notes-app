@@ -26,7 +26,7 @@ const ModalUpdateNote = () => {
 
   return (
     <>
-      <Modal show={isOpen} onHide={handleClose}>
+      {/*<Modal show={isOpen} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Edit note</Modal.Title>
         </Modal.Header>
@@ -34,11 +34,22 @@ const ModalUpdateNote = () => {
           <NoteForm note={editNote} onSubmit={updateFormSubmit} />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <button  onClick={handleClose}>
             Close
-          </Button>
+          </button>
         </Modal.Footer>
-      </Modal>
+      </Modal>*/}
+      {isOpen && (
+        <div className="justify-center items-center inline-flex overflow-x-hidden overflow-y-auto fixed w-full h-full inset-0 z-50 outline-none bg-gray-600 bg-opacity-75 ">
+          <div className="w-1/3 bg-white p-10 rounded">
+            <div className="flex justify-between">
+              <h4 className="text-xl mb-4">Edit Note:</h4>
+              <button className="px-4 py-2 bg-red-700 rounded text-white" onClick={handleClose}>X</button>
+            </div>
+            <NoteForm note={editNote} onSubmit={updateFormSubmit} />
+          </div>
+        </div>
+      )}
     </>
   );
 };
