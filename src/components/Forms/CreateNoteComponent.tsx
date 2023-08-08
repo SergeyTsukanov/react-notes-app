@@ -3,6 +3,7 @@ import { useState } from "react";
 import { createNoteAction } from "../../store/notes/actions";
 import { useDispatch } from "react-redux";
 import { noteFormPayload } from "./types";
+import Button from "../Utils/Button";
 
 const CreateNoteComponent = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -17,24 +18,18 @@ const CreateNoteComponent = () => {
     <div>
       {isOpen ? (
         <>
-          <button
-            className="bg-red-500 p-2 rounded text-white hover:bg-red-700 transition duration-300 mt-4"
-            onClick={() => setIsOpen(false)}
-          >
+          <Button color="red" onClick={() => setIsOpen(false)}>
             Close
-          </button>
+          </Button>
 
           <div className="mt-4 mx-auto  w-1/3">
             <NoteForm onSubmit={createFormSubmit} />
           </div>
         </>
       ) : (
-        <button
-          className="bg-blue-500 p-2 rounded text-white hover:bg-blue-700 transition duration-300 mt-4"
-          onClick={() => setIsOpen(true)}
-        >
+        <Button color="blue" onClick={() => setIsOpen(true)}>
           Add note
-        </button>
+        </Button>
       )}
     </div>
   );

@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { note } from "../../store/notes/types";
 import { Categories } from "../../store/notes/notesReducer";
 import { noteFormPayload } from "./types";
+import Button from "../Utils/Button";
 
 interface NoteFormProps {
   note?: note;
@@ -61,9 +62,7 @@ const NoteForm = ({ note, onSubmit }: NoteFormProps) => {
           )}
         </select>
       </div>
-      <button type="submit" className="p-2 bg-blue-700 rounded text-white">
-        Submit
-      </button>
+      <Button color="blue">Submit</Button>
     </form>
   );
 };

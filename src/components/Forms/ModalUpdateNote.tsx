@@ -5,6 +5,7 @@ import NoteForm from "./NoteForm";
 import { closeModal } from "../../store/modal/actions";
 import { noteFormPayload } from "./types";
 import { updateNoteAction } from "../../store/notes/actions";
+import Button from "../Utils/Button";
 
 const ModalUpdateNote = () => {
   const dispatch = useDispatch();
@@ -30,12 +31,7 @@ const ModalUpdateNote = () => {
           <div className="w-1/3 bg-white p-10 rounded">
             <div className="flex justify-between">
               <h4 className="text-xl mb-4">Edit Note:</h4>
-              <button
-                className="px-4 py-2 bg-red-700 rounded text-white"
-                onClick={handleClose}
-              >
-                X
-              </button>
+              <Button color="red" onClick={handleClose}>X</Button>
             </div>
             <NoteForm note={editNote} onSubmit={updateFormSubmit} />
           </div>
