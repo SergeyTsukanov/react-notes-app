@@ -31,7 +31,7 @@ const ModalUpdateNote = () => {
           <div className="w-1/3 bg-white p-10 rounded">
             <div className="flex justify-between">
               <h4 className="text-xl mb-4">Edit Note:</h4>
-              <Button color="red" onClick={handleClose}>X</Button>
+              <Button backgroundColor="red" onClick={handleClose}>X</Button>
             </div>
             <NoteForm note={editNote} onSubmit={updateFormSubmit} />
           </div>

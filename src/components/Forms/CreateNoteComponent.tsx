@@ -18,7 +18,7 @@ const CreateNoteComponent = () => {
     <div>
       {isOpen ? (
         <>
-          <Button color="red" onClick={() => setIsOpen(false)}>
+          <Button backgroundColor="red" onClick={() => setIsOpen(false)}>
             Close
           </Button>
 
@@ -27,7 +27,7 @@ const CreateNoteComponent = () => {
           </div>
         </>
       ) : (
-        <Button color="blue" onClick={() => setIsOpen(true)}>
+        <Button backgroundColor="blue" onClick={() => setIsOpen(true)}>
           Add note
         </Button>
       )}
