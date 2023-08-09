@@ -7,7 +7,7 @@ import {
 import { openModal } from "../../store/modal/actions";
 import { formatDate } from "../../utils/formatDate";
 
-interface TableBodyProps {
+export interface TableBodyProps {
   data: note[];
 }
 const TableBody = ({ data }: TableBodyProps) => {

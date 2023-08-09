@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-interface TableComponentProps {
+export interface TableComponentProps {
   children: ReactNode;
 }
 

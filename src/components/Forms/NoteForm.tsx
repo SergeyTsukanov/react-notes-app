@@ -62,7 +62,7 @@ const NoteForm = ({ note, onSubmit }: NoteFormProps) => {
           )}
         </select>
       </div>
-      <Button backgroundColor="blue">Submit</Button>
+      <Button color="blue">Submit</Button>
     </form>
   );
 };

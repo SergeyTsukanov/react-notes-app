@@ -25,7 +25,7 @@ const initialState: notesState = {
       category: Categories.TASK,
       content: "Go to the park at 11/07/2023 ",
       isArchive: false,
-      dates: parseDates("Go to the park at 11/07/2023"),
+      dates: parseDates( "Go to the park at 11/07/2023"),
     },
     {
       id: uuidv4(),
@@ -34,7 +34,7 @@ const initialState: notesState = {
       category: Categories.IDEA,
       content: "build task notes app",
       isArchive: false,
-      dates: parseDates("build task notes app"),
+      dates:parseDates( "build task notes app"),
     },
     {
       id: uuidv4(),
@@ -43,7 +43,7 @@ const initialState: notesState = {
       category: Categories.RANDTHOUGHT,
       content: "For better understanding react",
       isArchive: false,
-      dates: parseDates("For better understanding react"),
+      dates: parseDates( "For better understanding react"),
     },
     {
       id: uuidv4(),
@@ -52,7 +52,7 @@ const initialState: notesState = {
       category: Categories.TASK,
       content: "Install new version of Firefox",
       isArchive: false,
-      dates: parseDates("Install new version of Firefox"),
+      dates: parseDates( "Install new version of Firefox"),
     },
     {
       id: uuidv4(),

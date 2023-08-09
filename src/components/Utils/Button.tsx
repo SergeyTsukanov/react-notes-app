@@ -1,14 +1,18 @@
-import { ReactNode } from "react";
-
 interface ButtonProps {
-  backgroundColor: "red" | "blue";
+  color: "red" | "blue";
   onClick?: () => void;
-  children: ReactNode;
+  children: string;
 }
-const Button = ({ backgroundColor, onClick, children }: ButtonProps) => {
+
+const mapColorToStyles = {
+  red: "bg-red-500 hover:bg-red-700",
+  blue: "bg-blue-500 hover:bg-blue-700",
+};
+const Button = ({ color, onClick, children }: ButtonProps) => {
+  console.log(`bg-${color}-500`);
   return (
     <button
-      className={`bg-${backgroundColor}-500 p-2 rounded text-white hover:bg-${backgroundColor}-700 transition duration-300 mt-4`}
+      className={`p-2 rounded text-white transition duration-300 mt-4 ${mapColorToStyles[color]}`}
       onClick={onClick}
     >
       {children}

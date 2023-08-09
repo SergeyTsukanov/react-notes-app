@@ -11,7 +11,27 @@ export default meta;
 
 export const AddNoteButton: StoryObj<typeof Button> = {
   args: {
-    backgroundColor: "blue",
+    color: "blue",
     children: "Add note",
+  },
+};
+export const SubmitButton: StoryObj<typeof Button> = {
+  args: {
+    color: "blue",
+    children: "Submit",
+  },
+};
+
+export const CloseFormButton: StoryObj<typeof Button> = {
+  args: {
+    color: "red",
+    children: "Close",
+  },
+};
+
+export const CloseModalButton: StoryObj<typeof Button> = {
+  args: {
+    color: "red",
+    children: "X",
   },
 };
